@@ -1,4 +1,30 @@
-table, td, caption, th{
+table, td, th{
     border: 1px solid black;
     border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+    
 }
+h1{
+    text-shadow: 10px;
+}
+table{
+    box-shadow: 0 0 10% black;
+}
+td, th{
+    width: 100px;
+}
+body{
+    background-color: rgb(122, 121, 121);
+}
+#fundo{
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    background-color: azure;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+
