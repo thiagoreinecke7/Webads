@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <style>
+        #container{
+            position: relative;
+            margin: 50px;
+            border: 1px solid black;
+        }
         .box{
             display: inline-block;
-            width: 100px;
-            height: 100px;
+            width: 30px;
+            height: 50px;
             border: 1px solid #AABBCC;
             padding: 10px;
             outline: 1px dotted red;
@@ -14,7 +19,12 @@
             
         }
         #item1{
-            border: 10px solid #AABBCC;
+            position: static;
+            top: 100px;
+            left: 200px;
+
+
+            border: 1px solid #AABBCC;
             background-color: aquamarine;
             background-image: url(png-svgrepo-com.png);
             background-size: 30%;
@@ -24,17 +34,39 @@
             text-align: center;
             line-height: 100px;
             color: red;
-            font-size: 20px;
+            font-size: 1em;
+            font-style: normal;
+        }
+        #item2{
+            position: absolute;
+            top: 0px;
+            left: 0px;
             
+        }
+        #item3{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #texto{
+            padding: 10px;
+            margin: 10%;
         }
     </style>
 </head>
 <body>
-    <div>
+    <div id="container">
         <div id="item1" class="box">item1</div>
         <div id="item2" class="box">item2</div>
         <div id="item3" class="box">item3</div>
         <div id="item4" class="box">item4</div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div id="texto">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti dicta nemo harum eveniet animi nisi sint dolor odit cum ea esse officiis libero, id repudiandae impedit debitis quas consequatur praesentium?
     </div>
     
 </body>
