@@ -8,12 +8,33 @@
     <style>
         .container{
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
             height: 100svh;
+            grid-template-areas:
+            "header header header header"
+            "main main . sidebar"
+            "footer footer footer footer"
+            ;
+            grid-template-rows: 1fr 5fr 1fr;
+            
         }
         .box{
             border: 1px solid black;
+        }
+        #box1{
+            grid-area: header;
+            background-color: orange;
+        }
+        #box2{
+            grid-area: main;
+            background-color: aqua;
+        }
+        #box3{
+            grid-area: sidebar;
+            background-color: coral;
+        }
+        #box4{
+            grid-area: footer;
+            background-color: greenyellow;
         }
 
 
@@ -26,7 +47,7 @@
         <div class="box" id="box2">box2</div>
         <div class="box" id="box3">box3</div>
         <div class="box" id="box4">box4</div>
-        <div class="box" id="box5">box5</div>
+        
     </div>
 
     
