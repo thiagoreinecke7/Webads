@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6 pt 2</title>
+
+    <!--Introduzindo JS no HTML-->
+
+
+</head>
+<body>
+    <!--<h1 id="H1_titulo">Documento HTML da nossa página</h1>
+    <p>Parágrafo da nossa página</p>-->
+
+    <h1 id="h1titulo">Soma</h1>
+    <p>Solicite os parametros A e B para o usuário pelo Prompt e coloque o resultado em um parágrafo</p>
+
+    <p id="soma">
+
+    </p>
+
+    <script>
+        let a = Number(prompt("Digite o Número A:"))
+        let b = Number(prompt("Digite o Número B:"))
+        p=document.getElementById("soma")
+        //p = document.querySelector("#soma")
+        p.innerHTML = `A soma de ${a} + ${b} é ${a + b}`
+        p.style.color="#AA0000"
+
+    </script>
+    
+</body>
+</html>

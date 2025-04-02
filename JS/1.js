@@ -42,3 +42,20 @@ if (a + b > 18){
     console.log("A + B é > 18")
     console.log(`${a} + ${b} é > 18`)
 }
+// else if, else
+
+i = 0;
+while (i < 10){
+    console.log(i)
+    i++
+}
+
+for (i = 0; i < 10; i++){
+    console.log(i);
+}
+
+function soma(a,b){
+    return a + b;
+}
+
+console.log(soma(1, 2))
