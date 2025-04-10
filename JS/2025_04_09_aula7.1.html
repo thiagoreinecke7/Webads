@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Aula 7</title>
+
+    <!--Introdução a JavaScript-->
+
+    <style>
+        body{
+            height: 100lvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+
+
+    </style>
+</head>
+<body>
+    <button id="botao">Teste</button>
+    <label for="min">Mínimo</label>
+    <input id="min" type="text" value="10">
+    <label for="max">Máximo</label>
+    <input id="max" type="text" value="20">
+    <p id="nrand">asas</p>
+
+    <script>
+        let i = 0
+        let aa = 0
+        let button = document.querySelector("#botao")
+        
+
+        //mouseover - quando o mouse passa por cima do elemento.
+
+        button.addEventListener("click", ()=>{
+            imprimir()
+            delta = Number(max.value) - Number(min.value)
+            n = (delta * Math.random()) + Number(min.value)
+            nrand.innerHTML = Math.trunc(n)
+            
+        })
+        
+
+        //Estrutura de dados
+        function imprimir(){
+
+            console.log(typeof(i))
+            i = "João"
+            console.log(typeof(i))
+            i = true
+            console.log(typeof(i))
+            i = {
+                nome: "Gabriel",
+                matricula: 123456,
+                endereco: {
+                    rua: "R. Das Capivaras",
+                    numero: 12
+                }
+            }
+            p = {
+                nome: "Gabriel",
+                matricula: 123456,
+                endereco: {
+                    rua: "R. Das Capivaras",
+                    numero: 12
+                }
+            }
+            console.log(typeof(i))
+            console.log(i)
+            console.log(i.nome)
+            console.log(i.matricula)
+            console.log(i.endereco.rua + " numero: " + i.endereco.n)
+
+            i = () => {alert(Olá)}
+            console.log(typeof(i))
+            i = ["a", "dsadsd", "c"]
+            i.push("novo")
+            console.log(i[1])
+            console.log(i)
+            i = [p, p]
+            console.log(i)
+
+            //Estrutura de seleção
+            if(1 > 2){
+
+            }else if (3 > 4){
+
+            } else{
+
+            }
+            i = [p, p, p]
+
+            i.forEach( (item, index) => {
+                console.log("Indice: " + index)
+                console.log(item.nome)
+            })
+
+            //Estrutura de repetição
+            for(i = 0; i < 3; i++){
+                console.log(i)
+            }
+            //while (1 < 2){
+
+            //}
+            function hello(){
+                console.log("Hello")
+            }
+
+            //Função sem nome
+            () => {
+                alert("asdsd")
+            }
+            hello();
+
+            //Vinculando evento
+            button.innerHTML = aa
+            aa++
+            button.style.width = `${aa}px`
+            button.style.height = `${aa}px`
+
+        }
+        
+
+    </script>
+    
+</body>
+</html>
