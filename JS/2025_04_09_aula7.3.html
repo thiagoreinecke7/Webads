@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7 pt 3</title>
+
+
+    <style>
+        *{
+            border: 1px solid black;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 100svh;
+        }
+        p{
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            margin: auto;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="texto"></p>
+
+    <script>
+        document.addEventListener("keypress", (key)=>{
+            texto.innerHTML += key.key
+            if (key.keyCode == 13){
+                alert("Enter Pressionado")
+            }
+        })
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7 pt 2</title>
+
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100svh;
+        }
+        button{
+            font-weight: bold;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px 0;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <button id="botao">Clique em mim</button>
+    <p id="numero"><b></b></p>
+
+    <script>
+        var botao = document.querySelector("#botao")
+        var numero = document.getElementById("numero")
+
+        botao.addEventListener("click", clicou)
+
+        function clicou(){
+            numero.style.fontWeight = "bold"
+            //numero.innerHTML = `${randColor()} ${randColor()} ${randColor()}`
+            //document.body.style.backgroundColor = `rgb(${randColor()},${randColor()},${randColor()})`
+
+            numero.innerHTML = `#${randColorHex()}${randColorHex()}${randColorHex()}`
+            document.body.style.backgroundColor = `#${randColorHex()}${randColorHex()}${randColorHex()}`
+
+        }
+        function randColor(){
+            return Math.trunc(Math.random()*255)
+        }
+        function randColorHex(){
+            return Math.trunc(Math.random()*255).toString(16)
+        }
+
+
+        
+
+        
+    </script>
+</body>
+</html>
