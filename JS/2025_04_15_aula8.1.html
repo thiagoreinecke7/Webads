@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8</title>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Local storage é um local para armazenamento de dados.</h1>
+    <p>O local storage é um local para armazenamento de dados no formato chave valor por exemplo.</p>
+    <code>
+        "chave1", "valor"
+        "nome", "carlos"
+        "nome", "carlos"
+    </code>
+
+    <br>
+    <label for="nameInput">Nome</label>
+    <input type="text" id="nameInput" placeholder="Digite seu nome">
+
+    <br>
+    <label for="email">Email</label>
+    <input type="text" id="email" placeholder="email">
+
+    <br>
+    <button id="saveButton">Salvar</button>
+    <p id="greeting"></p>
+    
+    <script>
+        let nameInput = document.getElementById("nameInput")
+        let saveButton = document.getElementById("saveButton")
+        let msg = document.getElementById("greeting")
+
+        if(localStorage.key("dados")){
+            stringJSONPessoa = localStorage.getItem("dados")
+            objPessoa = JSON.parse(stringJSONPessoa)
+            nameInput.value = objPessoa.nome
+            email.value = objPessoa.email
+        }
+
+        
+
+        saveButton.addEventListener("click", salvarNome)
+
+        function salvarNome(){
+           
+            //localStorage.setItem(localStorage.length+1, nameInput.value) não sobrescreve
+            //localStorage.setItem("nome", nameInput.value)
+
+            //Criando um json
+            pessoa = {nome: nameInput.value, email: email.value, idade: "19/03/1986"}
+
+            console.log(pessoa.nome)
+            console.log(pessoa.email)
+            console.log(pessoa.idade)
+
+
+            localStorage.setItem("dados", JSON.stringify(pessoa))
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8 pt 2</title>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Set Interval</h1>
+    <p>A função set interval do navegador permite você cadastrar um intervalo de disparo, em que uma função será executado a cada passagem desse intervalo.</p>
+    <p>A função retorna um inteiro referente ao intervalo.
+    </p>
+
+    <p id="data"></p>
+    
+    <script>
+        pdata = document.getElementById("data")
+
+        setInterval(atualizaHora, 1)
+
+        //Para parar o interval precisa saber o intervalo que o interval esta. Para fazer isso é interessante salvar o intervalo em uma variável. para parrar o interval usar a função "clearInterval(1)"
+
+
+        function atualizaHora(){
+            d = new Date()
+
+            pdata.innerHTML = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} -- ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+        }   
+
+        setInterval
+
+    </script>
+</body>
+</html>
