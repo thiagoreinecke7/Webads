@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro</title>
+
+    <style>
+        
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            
+        }
+        #boxCronometro{
+            height: 50%;
+            width: 80%;
+            border-radius: 20px;
+            background-color: gray;
+            display: flex;
+            flex-direction: row-reverse;
+            overflow: hidden;
+            box-shadow: 0 5px 10px 0px black;
+        }
+        #boxParadas{
+            width: 40%;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            background-color: rgb(194, 193, 193);
+        }
+        #telaCronometro{
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #tempo{
+            margin: 20px;
+            color: white;
+            font-size: 80px;
+            font-weight: bold;
+        }
+        button{
+            font-size: 20px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 15px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px 0px black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="boxCronometro">
+        <div id="boxParadas">
+            <h1>Paradas</h1>
+            <ol id="listaParadas">
+
+            </ol>
+        </div>
+        <div id="telaCronometro">
+            <div id="tempo">00:00:00</div>
+            <div id="botoes">
+                <button id="btnZera" onclick="zerar()">Zerar</button>
+                <button id="btnPausa" onclick="pausa()">Começar</button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script>
+        let btnPausa = document.getElementById("btnPausa")
+        let btnZera = document.getElementById("btnZera")
+        let tempo = document.getElementById("tempo")
+
+        let intervalo = null
+        let crono = new Date()
+        let incio = crono - inicio
+        let a = crono - crono
+        console.log(a)
+
+        function pausa(){
+
+            if(btnPausa.innerText === "Começar"){
+                btnPausa.innerText = "Parar"
+                intervalo = setInterval(correTempo, 10)
+            }else{
+                btnPausa.innerText = "Começar"
+                clearInterval(intervalo)
+            }
+        }
+        function correTempo(){
+            let b = new Date(a)
+            min = b.getMinutes().toString().padStart(2, '0')
+            sec = b.getSeconds().toString().padStart(2, '0')
+            mil = Math.floor(b.getMilliseconds() / 10).toString().padStart(2, '0')
+
+            tempo.innerText = `${min}:${sec}:${mil}`
+        }
+        function zerar(){
+            clearInterval(intervalo)
+            tempo.innerText = "00:00:00"
+            btnPausa.innerText = "Começar"
+            
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9 pt 2</title>
+
+    <style>
+        body{
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #poster{
+            width: 200px;
+        }
+        #lista>img{
+            width: 60px;
+            height: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Lista de Cachorros Aleatórios</h1>
+    <img id="poster"></img>
+    <br>
+    <div id="lista"></div>
+
+
+    <script>
+        poster = document.querySelector("#poster")
+        lista = document.querySelector("#lista")
+        arrayDogs = []
+
+        if(localStorage.key("listadog")){
+            arrayDogs = JSON.parse(localStorage.getItem("listadog"))
+            arrayDogs.forEach((element)=>{
+                addDogLista(element)
+            })
+        }
+
+        function chamaDog(){
+            const url = "https://dog.ceo/api/breeds/image/random"
+
+            fetch(url)
+            .then((r)=>{return r.json()})
+            .then((o)=>{
+                console.log(o)
+                showDog(o.message)
+                addDogLista(o.message)
+                arrayDogs.push(o.message)
+                localStorage.setItem("listadog", JSON.stringify(arrayDogs))
+
+            })
+        }
+
+        function showDog(urldog){
+            poster.src = urldog
+        }
+        
+        function addDogLista(urldog){
+            img = document.createElement("img")
+            img.src = urldog
+            lista.appendChild(img)
+        }
+
+        document.addEventListener("keypress", chamaDog)
+        chamaDog()
+
+    </script>
+    
+</body>
+</html>

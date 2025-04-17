@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9 pt 1</title>
+
+    <!--Trabalhando com APIs-->
+</head>
+<body>
+    <p id="msg"></p>
+
+    <script>
+
+        array = []
+
+        document.addEventListener("keypress", fetchMensagem)
+
+        function fetchMensagem(){
+
+        
+            const url = "https://api.chucknorris.io/jokes/random"
+
+            fetch(url).then(()=>{console.log("oi")}) //Executa quando tem uma resposta positiva do servidor. O .catch() executa quando não há uma resposta positiva do servidor e serve para tratamento de dados. Fetch retorna uma promisse.
+
+            fetch(url).then((resposta)=>{console.log(resposta)})
+            
+            fetch(url).then((resposta)=>{return resposta.json()})
+            .then((r)=>{
+                array.push(r.value)
+                show_mensagem()
+            })
+            
+
+        }
+
+        function show_mensagem(){
+                p = document.createElement("p")
+                p.innerHTML = array[array.length-1]
+                document.querySelector("#msg").appendChild(p)
+        }
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>
