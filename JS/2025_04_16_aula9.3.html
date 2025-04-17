@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9 pt 3</title>
+
+    <!--Testando APIs - API cotação Bitcoin-->
+
+    <style>
+        body{
+            height: 100svh;
+            display: flex;
+            align-items: center ;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Bitcoin</h1>
+    <p id="cotacao"></p>
+    <button>Buscar Cotação</button>
+    <script>
+
+        let url = "https://economia.awesomeapi.com.br/json/last/BTC-BRL"
+        document.querySelector("button").addEventListener("click", getValueBitcoin)
+        let cotacao = document.getElementById("cotacao")
+
+        function getValueBitcoin(){
+
+            fetch(url)
+            .then((r)=>{return r.json()})
+            .then((o)=>{
+                console.log(o.BTCBRL)
+                cotacao.innerHTML = new Intl.NumberFormat( "pt-BR", {style:"currency", currency: "BRL"}).format(o.BTCBRL.high)
+            })
+
+            
+        }
+
+    </script>
+</body>
+</html>

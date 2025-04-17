@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="inputmovie">Nome Filme</label>
+    <input type="text" name="" id="inputmovie">
+    <button>Buscar</button>
+
+    <div id="list"></div>
+
+    <script>
+        urlbase = "https://www.omdbapi.com/?s="
+        apikey = "&apikey=f77bfada"
+        inputmovie = document.querySelector("#inputmovie")
+        document.querySelector("button").addEventListener("click", buscaFilme)
+
+        function buscaFilme(){
+            listahtml = ""
+            fetch(urlbase + inputmovie.value + apikey)
+            .then((r)=>{return r.json()})
+            .then((o)=>{
+                console.log(o)
+                o.Search.forEach(element => {
+                    listahtml += addMovieList(element)
+                });
+                document.querySelector("#list").innerHTML = listahtml
+            })
+        }
+        function addMovieList(filme){
+            str = `
+                <div class="filme">
+                    <p>${filme.Titulo}</p>
+                    <img src=${filme.Poster}>
+                </div>
+            `
+            return str
+        }
+    </script>
+    
+</body>
+</html>
